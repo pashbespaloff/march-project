@@ -4,32 +4,88 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <!-- <link rel="stylesheet" href="./bootstrap.js"> -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/style.css">
   <title>march project / pb</title>
 </head>
 <body>
-  <main class="main">
-    <section class="box box0">
-      <h1 class="h1">👹 project / pb</h1>
+
+  <nav class="pt-3">
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="#" data-tab="calc">calculator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-tab="acc">validation form</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-tab="surv">survey</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-tab="game">tic-tac-toe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-tab="todo">to-do list</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-tab="silder">custom slider</a>
+      </li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="container section" data-tab="calc">
+      <h1 class="pt-3 text-center">calculator</h1>
+      <div class="calc">
+        <input type="text" class="form-control calc-field" disabled>
+        <div class="calc-row">
+          <button class="btn btn-light btn-number">1</button>
+          <button class="btn btn-light btn-number">2</button>
+          <button class="btn btn-light btn-number">3</button>
+          <button class="btn btn-light btn-operator">+</button>
+        </div>
+        <div class="calc-row">
+          <button class="btn btn-light btn-number">4</button>
+          <button class="btn btn-light btn-number">5</button>
+          <button class="btn btn-light btn-number">6</button>
+          <button class="btn btn-light btn-operator">-</button>
+        </div>
+        <div class="calc-row">
+          <button class="btn btn-light btn-number">7</button>
+          <button class="btn btn-light btn-number">8</button>
+          <button class="btn btn-light btn-number">9</button>
+          <button class="btn btn-light btn-operator">*</button>
+        </div>
+        <div class="calc-row">
+          <button class="btn btn-danger btn-delete">C</button>
+          <button class="btn btn-light btn-number">0</button>
+          <button class="btn btn-success btn-result">=</button>
+          <button class="btn btn-light btn-operator">/</button>
+        </div>
+      </div>
     </section>
 
-    <section class="box box1">
-
+    <section class="container section d-none" data-tab="acc">
+      <h1 class="pt-3 text-center">validation form</h1>
     </section>
-
-    <section class="box box2 hidden">
-
+    
+    <section class="container section d-none" data-tab="surv">
+      <h1 class="pt-3 text-center">survey</h1>
     </section>
-
-    <section class="box box3 hidden">
-
+    
+    <section class="container section d-none" data-tab="game">
+      <h1 class="pt-3 text-center">tic-tac-toe</h1>
     </section>
-
-    <section class="box results">
-
+    
+    <section class="container section d-none" data-tab="todo">
+      <h1 class="pt-3 text-center">task list</h1>
+    </section>
+    
+    <section class="container section d-none" data-tab="silder">
+      <h1 class="pt-3 text-center">custom slider</h1>
     </section>
   </main>
+  <script src="./js/script1.js"></script>
+  <script src="./js/calc.js"></script>
 </body>
-  <script src="./script.js"></script>
 </html>

@@ -1,0 +1,48 @@
+@font-face {
+  font-display: block;
+  font-family: 'Syne';
+  src: url('/fonts/Syne/Syne-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --light: #f8f9fa;
+}
+
+.section h1 {
+  font-family: 'Syne', 'Helvetica';
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+/* styles for calc */
+.calc {
+  max-width: 270px;
+  margin: auto;
+}
+
+.calc-field,
+.btn {
+  border-radius: 0;
+  border: 0;
+}
+
+.calc-field:disabled {
+  background-color: var(--light);
+}
+
+.form-control,
+.calc-row {
+  margin-bottom: 10px;
+}
+
+.calc-row {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  min-width: 60px;
+  margin: 0 5px;
+}
