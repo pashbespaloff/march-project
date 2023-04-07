@@ -10,6 +10,8 @@ const calcField = document.querySelector(".calc-field"),
       btnNumbers = document.querySelectorAll(".btn-number"),
       btnOperators = document.querySelectorAll(".btn-operator");
 
+let resultState = false;
+
 btnDelete.addEventListener("click", deleteSymbol);
 btnResult.addEventListener("click", getResult);
 
@@ -18,47 +20,33 @@ btnNumbers.forEach(item => item.addEventListener("click", writeToInput));
 btnOperators.forEach(item => item.addEventListener("click", writeToInput));
 document.addEventListener("keydown", writeKeysToInput);
 
-/*
 function writeToInput(event) {
-  let symbol = event.target.textContent,
-      input = calcField.value,
-      lastSymbol = input[input.length - 1];
-  if (event.target.classList.contains("btn-operator")) {
-    if (lastSymbol !== " " && input.length) {
-      input += ` ${symbol} `;
-    } else {
-      console.log("enter correct value");
-    };
-  } else {
-    if ((!input.length && symbol === "0") || 
-    (lastSymbol === " " && symbol === "0")) {
-      console.log("enter correct value");
-    } else {
-    input += symbol;
-    };
-  };
-  calcField.value = input;
-};
-*/
-
-function writeToInput(event) {
-  let input = calcField.value,
-      symbol = event.target.textContent,
-      lastSymbol = input[input.length - 1];
-  const isOperator = event.target.classList.contains("btn-operator"),
-        isNewValue = input.length === 0 || lastSymbol === " ";
-
+  let input = calcField.value;
+  const symbol = event.target.textContent,
+        lastSymbol = input[input.length - 1],
+        isOperator = event.target.classList.contains("btn-operator"),
+        isNewValue = input.length === 0,
+        isLastOperator = lastSymbol === " ",
+        isZero = symbol === "0";
+  
   if (isOperator) {
-    if (isNewValue) {
+    if (isNewValue || isLastOperator) {
       console.log("enter correct value");
     } else {
-    input += ` ${symbol} `;
+      if (resultState) {
+        resultState = false;
+      };
+      input += ` ${symbol} `;
     };
   } else {
-    if (isNewValue && symbol === "0") {
+    if ((isNewValue || isLastOperator) && isZero) {
       console.log("enter correct value");
     } else {
-    input += symbol;
+      if (resultState) {
+        resultState = false;
+        input = "";
+      };
+      input += symbol;
     };
   };
 
@@ -66,84 +54,52 @@ function writeToInput(event) {
 };
 
 function deleteSymbol() {
-  let input = calcField.value,
-      lastSymbol = input[input.length - 1];
-  if (lastSymbol === " ") {
-    input = input.slice(0, -3);
+  let input = calcField.value;
+  const lastSymbol = input[input.length - 1];
+  (lastSymbol === " ")
+    ? input = input.slice(0, -3)
+    : input = input.slice(0, -1);
+  calcField.value = input;
+};
+
+function getResult() {
+  let input = calcField.value;
+  const lastSymbol = input[input.length - 1],
+        isNewValue = input.length === 0,
+        isLastOperator = lastSymbol === " ";
+  
+  if (isLastOperator || isNewValue) {
+    console.log("enter correct value");
   } else {
-    input = input.slice(0, -1);
-  };
-  calcField.value = input;
-};
+    let expression = input.split(" ").join(""),
+        result = eval(expression);
 
-/*
-function getResult () {
-  let input = calcField.value,
-      arrayOfInput = input.split(" "),
-      numbersArray = [],
-      operatorsArray = [],
-      result = 0;
-  for (let i = 0; i < arrayOfInput.length; i++) {
-    if (!Number(isNaN(arrayOfInput[i]))) {
-      numbersArray.push(Number(arrayOfInput[i]));
-    } else {
-      operatorsArray.push(arrayOfInput[i]);
-    };
-  };
-};
-*/
-
-function getResult () {
-  let input = calcField.value,
-      expression = input.split(" ").join(""),
-      result = eval(expression);
-
-  input = result;
-  calcField.value = input;
-
-  restartCalc();
-};
-
-function restartCalc () {
-  btnNumbers.forEach(item => item.removeEventListener("click", writeToInput));
-  btnOperators.forEach(item => item.removeEventListener("click", writeToInput));
-  document.removeEventListener("keydown", writeKeysToInput);
-
-  btnNumbers.forEach(item => item.addEventListener("click", cleanInput));
-  btnOperators.forEach(item => item.addEventListener("click", cleanInput));
-  document.addEventListener('keydown', cleanInput);
-
-  function cleanInput() {
-    input = "";
+    input = result;
     calcField.value = input;
-    btnNumbers.forEach(item => item.removeEventListener("click", cleanInput));
-    btnOperators.forEach(item => item.removeEventListener("click", cleanInput));
-    document.removeEventListener('keydown', cleanInput);
-  };
-
-  btnNumbers.forEach(item => item.addEventListener("click", writeToInput));
-  btnOperators.forEach(item => item.addEventListener("click", writeToInput));
-  document.addEventListener("keydown", writeKeysToInput);
+    resultState = true;
+    // restartCalc();
+  }
 };
 
 function writeKeysToInput(event) {
-  let input = calcField.value, 
-      key = event.key;
-      lastSymbol = input[input.length - 1];
-  
-  const isOperator = key === "+" || key === "-" || key === "*" || key === "/",
+  let input = calcField.value;
+  const key = event.key,
+        lastSymbol = input[input.length - 1],
+        isOperator = key === "+" || key === "-" || key === "*" || key === "/",
         isNumber = key >= 0 && key <= 9,
-        isNewValue = input.length === 0 || lastSymbol === " ";
+        isNewValue = input.length === 0,
+        isLastOperator = lastSymbol === " ",
+        isZero = key === "0";
 
   if (isOperator) {
-    if (isNewValue) {
+    if (isNewValue || isLastOperator) {
       console.log("enter correct value");
     } else {
     input += ` ${key} `;
     };
     
   } else if (isNumber) {
-    if (isNewValue && key === "0") {
+    if ((isNewValue || isLastOperator) && isZero) {
       console.log("enter correct value");
     } else {
     input += key;
@@ -152,9 +108,9 @@ function writeKeysToInput(event) {
 
   calcField.value = input;
 
-  if (key === "Backspace")
+  if (key === "Backspace" || key === "c")
     deleteSymbol();
 
-  if (key === "=")
+  if (key === "=" || key === "Enter")
     getResult();
 };

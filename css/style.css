@@ -8,6 +8,7 @@
 
 :root {
   --light: #f8f9fa;
+  --red: #dc3545;
 }
 
 .section h1 {
@@ -23,7 +24,7 @@
 }
 
 .calc-field,
-.btn {
+.calc-btn {
   border-radius: 0;
   border: 0;
 }
@@ -42,7 +43,29 @@
   justify-content: center;
 }
 
-.btn {
+.calc-btn {
   min-width: 60px;
+  min-height: 40px;
   margin: 0 5px;
+}
+
+/* styles for form */
+.form-sq {
+  border-radius: 0;
+}
+
+.form-btn {
+  min-width: 200px;
+  min-height: 40px;
+  border-radius: 0;
+  border: 0;
+}
+
+.contact-group {
+  padding: 0px 0;
+  border-bottom: 1px solid transparent;
+}
+
+.contact-group.not-valid {
+  border-bottom: 1px solid var(--red);
 }

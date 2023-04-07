@@ -13,10 +13,10 @@
   <nav class="pt-3">
     <ul class="nav nav-tabs justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" href="#" data-tab="calc">calculator</a>
+        <a class="nav-link" href="#" data-tab="calc">calculator</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" data-tab="acc">validation form</a>
+        <a class="nav-link active" href="#" data-tab="acc">validation form</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" data-tab="surv">survey</a>
@@ -34,39 +34,221 @@
   </nav>
 
   <main>
-    <section class="container section" data-tab="calc">
+    <section class="container section d-none" data-tab="calc">
       <h1 class="pt-3 text-center">calculator</h1>
       <div class="calc">
         <input type="text" class="form-control calc-field" disabled>
         <div class="calc-row">
-          <button class="btn btn-light btn-number">1</button>
-          <button class="btn btn-light btn-number">2</button>
-          <button class="btn btn-light btn-number">3</button>
-          <button class="btn btn-light btn-operator">+</button>
+          <button class="btn calc-btn btn-light btn-number">1</button>
+          <button class="btn calc-btn btn-light btn-number">2</button>
+          <button class="btn calc-btn btn-light btn-number">3</button>
+          <button class="btn calc-btn btn-light btn-operator">+</button>
         </div>
         <div class="calc-row">
-          <button class="btn btn-light btn-number">4</button>
-          <button class="btn btn-light btn-number">5</button>
-          <button class="btn btn-light btn-number">6</button>
-          <button class="btn btn-light btn-operator">-</button>
+          <button class="btn calc-btn btn-light btn-number">4</button>
+          <button class="btn calc-btn btn-light btn-number">5</button>
+          <button class="btn calc-btn btn-light btn-number">6</button>
+          <button class="btn calc-btn btn-light btn-operator">-</button>
         </div>
         <div class="calc-row">
-          <button class="btn btn-light btn-number">7</button>
-          <button class="btn btn-light btn-number">8</button>
-          <button class="btn btn-light btn-number">9</button>
-          <button class="btn btn-light btn-operator">*</button>
+          <button class="btn calc-btn btn-light btn-number">7</button>
+          <button class="btn calc-btn btn-light btn-number">8</button>
+          <button class="btn calc-btn btn-light btn-number">9</button>
+          <button class="btn calc-btn btn-light btn-operator">*</button>
         </div>
         <div class="calc-row">
-          <button class="btn btn-danger btn-delete">C</button>
-          <button class="btn btn-light btn-number">0</button>
-          <button class="btn btn-success btn-result">=</button>
-          <button class="btn btn-light btn-operator">/</button>
+          <button class="btn calc-btn btn-danger btn-delete">C</button>
+          <button class="btn calc-btn btn-light btn-number">0</button>
+          <button class="btn calc-btn btn-success btn-result">=</button>
+          <button class="btn calc-btn btn-light btn-operator">/</button>
         </div>
       </div>
     </section>
 
-    <section class="container section d-none" data-tab="acc">
+    <section class="container section" data-tab="acc">
       <h1 class="pt-3 text-center">validation form</h1>
+
+      <div class="d-flex justify-content-center">
+
+        <form class="form">
+          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="first-name">first name</label>
+              <input type="text" class="form-control form-sq first-name" id="first-name" placeholder="">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="last-name">last name</label>
+              <input type="text" class="form-control form-sq last-name" id="last-name" placeholder="">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="age">age</label>
+              <input type="text" class="form-control form-sq age" id="age" placeholder="">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="phone">phone</label>
+              <input type="text" class="form-control form-sq phone" id="phone" placeholder="+999 999999999">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="email">email</label>
+              <input type="text" class="form-control form-sq email" id="email" placeholder="name@mail.com">
+            </div>
+          </div>
+
+          <div class="form-group contact-group">
+            <label>prefered&nbsp;contact:&nbsp;&nbsp;</label>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input contact-phone" type="radio" name="contact" value="option1">
+              <label class="form-check-label" for="option1">phone</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input contact-email" type="radio" name="contact" value="option2">
+              <label class="form-check-label" for="option2">email</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input contact-post" type="radio" name="contact" value="option3">
+              <label class="form-check-label" for="option3">post</label>
+            </div>
+          </div>
+
+          <div class="form-group mb-4 d-none">
+            <label for="address">address</label>
+            <input type="text" name="address" class="form-control form-sq contact-address">
+          </div>
+
+          <label>choose your&nbsp;birthdate:</label>
+          <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="birth-day">day</label>
+              <select name="birth-day" class="form-control form-control-sm form-sq">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="birth-month">month</label>
+              <select name="birth-month" class="form-control form-control-sm form-sq">
+                <option value="1">january</option>
+                <option value="2">february</option>
+                <option value="3">march</option>
+                <option value="4">april</option>
+                <option value="5">may</option>
+                <option value="6">june</option>
+                <option value="7">july</option>
+                <option value="8">august</option>
+                <option value="9">september</option>
+                <option value="10">october</option>
+                <option value="11">november</option>
+                <option value="12">december</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="birth-year">year</label>
+              <select name="birth-year" class="form-control form-control-sm form-sq">
+                <option value="2013">2013</option>
+                <option value="2012">2012</option>
+                <option value="2011">2011</option>
+                <option value="2010">2010</option>
+                <option value="2009">2009</option>
+                <option value="2008">2008</option>
+                <option value="2007">2007</option>
+                <option value="2006">2006</option>
+                <option value="2005">2005</option>
+                <option value="2004">2004</option>
+                <option value="2003">2003</option>
+                <option value="2002">2002</option>
+                <option value="2001">2001</option>
+                <option value="2000">2000</option>
+                <option value="1999">1999</option>
+                <option value="1998">1998</option>
+                <option value="1997">1997</option>
+                <option value="1996">1996</option>
+                <option value="1995">1995</option>
+                <option value="1994">1994</option>
+                <option value="1993">1993</option>
+                <option value="1992">1992</option>
+                <option value="1991">1991</option>
+                <option value="1990">1990</option>
+                <option value="1989">1989</option>
+                <option value="1988">1988</option>
+                <option value="1987">1987</option>
+                <option value="1986">1986</option>
+                <option value="1985">1985</option>
+                <option value="1984">1984</option>
+                <option value="1983">1983</option>
+                <option value="1982">1982</option>
+                <option value="1981">1981</option>
+                <option value="1980">1980</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="password">password</label>
+              <input type="password" name="password" class="form-control form-sq password" id="password">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="repeat-password">repeat password</label>
+              <input type="password" name="repeat-password" class="form-control form-sq repeat-password" id="repeat-password">
+            </div>
+          </div>
+
+          <div class="form-group mb-6">
+            <div class="form-check">
+              <input class="form-check-input personal-data" type="checkbox" name="personal-data" id="personal-data" checked>
+              <label class="form-check-label" for="personal-data">
+                i approve you get my data
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input notification" type="checkbox" name="notification" id="notification">
+              <label class="form-check-label" for="notification">
+                i approve to get notifications
+              </label>
+            </div>
+          </div>
+          
+          <div class="d-flex justify-content-center mt-4">
+            <button type="submit" class="btn form-btn btn-primary">sign up</button>
+          </div>
+
+        </form>
+
+      </div>
+
     </section>
     
     <section class="container section d-none" data-tab="surv">
@@ -87,5 +269,6 @@
   </main>
   <script src="./js/script1.js"></script>
   <script src="./js/calc.js"></script>
+  <script src="./js/form.js"></script>
 </body>
 </html>
