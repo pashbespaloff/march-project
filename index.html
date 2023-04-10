@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/bootstrap.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <title>march project / pb</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
         <a class="nav-link" href="#" data-tab="calc">calculator</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#" data-tab="acc">validation form</a>
+        <a class="nav-link active" href="#" data-tab="form">registration form</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" data-tab="surv">survey</a>
@@ -65,41 +66,40 @@
       </div>
     </section>
 
-    <section class="container section" data-tab="acc">
-      <h1 class="pt-3 text-center">validation form</h1>
+    <section class="container section" data-tab="form">
+      <h1 class="pt-3 text-center">registration</h1>
 
-      <div class="d-flex justify-content-center">
-
+      <div class="d-flex justify-content-center mt-4 mb-5">
         <form class="form">
           
-          <div class="form-row">
+          <div class="form-row mb-2">
             <div class="form-group col-md-6">
               <label for="first-name">first name</label>
-              <input type="text" class="form-control form-sq first-name" id="first-name" placeholder="">
+              <input type="text" class="form-control form-sq first-name" name="firstName" placeholder="">
             </div>
             <div class="form-group col-md-6">
               <label for="last-name">last name</label>
-              <input type="text" class="form-control form-sq last-name" id="last-name" placeholder="">
+              <input type="text" class="form-control form-sq last-name" name="lastName" placeholder="">
             </div>
           </div>
 
-          <div class="form-row">
+          <div class="form-row mb-2">
             <div class="form-group col-md-2">
               <label for="age">age</label>
-              <input type="text" class="form-control form-sq age" id="age" placeholder="">
+              <input type="text" class="form-control form-sq age" name="age" placeholder="18+">
             </div>
             <div class="form-group col-md-4">
               <label for="phone">phone</label>
-              <input type="text" class="form-control form-sq phone" id="phone" placeholder="+999 999999999">
+              <input type="text" class="form-control form-sq phone" name="phone" placeholder="042 123456789">
             </div>
             <div class="form-group col-md-6">
               <label for="email">email</label>
-              <input type="text" class="form-control form-sq email" id="email" placeholder="name@mail.com">
+              <input type="text" class="form-control form-sq email" name="email" placeholder="name@mail.com">
             </div>
           </div>
 
-          <div class="form-group contact-group">
-            <label>prefered&nbsp;contact:&nbsp;&nbsp;</label>
+          <div class="form-group contact-group mb-4">
+            <label>prefered&nbsp;contact&nbsp;&nbsp;</label>
             <div class="form-check form-check-inline">
               <input class="form-check-input contact-phone" type="radio" name="contact" value="option1">
               <label class="form-check-label" for="option1">phone</label>
@@ -112,18 +112,35 @@
               <input class="form-check-input contact-post" type="radio" name="contact" value="option3">
               <label class="form-check-label" for="option3">post</label>
             </div>
+
+            <div class="form-group mt-3 d-none">
+              <label for="address">address</label>
+              <input type="text" name="address" class="form-control form-sq contact-address">
+            </div>
           </div>
 
-          <div class="form-group mb-4 d-none">
-            <label for="address">address</label>
-            <input type="text" name="address" class="form-control form-sq contact-address">
-          </div>
-
-          <label>choose your&nbsp;birthdate:</label>
-          <div class="form-row">
-            <div class="form-group col-md-2">
-              <label for="birth-day">day</label>
-              <select name="birth-day" class="form-control form-control-sm form-sq">
+          <div class="form-group birthdate-group mb-4">
+            <label>birthday&nbsp;&nbsp;</label>
+            <div class="form-check form-check-inline">
+              <select name="birth-month" class="form-control form-control-sm form-sq birth-month">
+                <option value="" disabled selected>month</option>
+                <option value="0">january</option>
+                <option value="1">february</option>
+                <option value="2">march</option>
+                <option value="3">april</option>
+                <option value="4">may</option>
+                <option value="5">june</option>
+                <option value="6">july</option>
+                <option value="7">august</option>
+                <option value="8">september</option>
+                <option value="9">october</option>
+                <option value="10">november</option>
+                <option value="11">december</option>
+              </select>
+            </div>
+            <div class="form-check form-check-inline">
+              <select name="birth-day" class="form-control form-control-sm form-sq birth-day">
+                <option value="" disabled selected>day</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -157,83 +174,29 @@
                 <option value="31">31</option>
               </select>
             </div>
-            <div class="form-group col-md-2">
-              <label for="birth-month">month</label>
-              <select name="birth-month" class="form-control form-control-sm form-sq">
-                <option value="1">january</option>
-                <option value="2">february</option>
-                <option value="3">march</option>
-                <option value="4">april</option>
-                <option value="5">may</option>
-                <option value="6">june</option>
-                <option value="7">july</option>
-                <option value="8">august</option>
-                <option value="9">september</option>
-                <option value="10">october</option>
-                <option value="11">november</option>
-                <option value="12">december</option>
-              </select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="birth-year">year</label>
-              <select name="birth-year" class="form-control form-control-sm form-sq">
-                <option value="2013">2013</option>
-                <option value="2012">2012</option>
-                <option value="2011">2011</option>
-                <option value="2010">2010</option>
-                <option value="2009">2009</option>
-                <option value="2008">2008</option>
-                <option value="2007">2007</option>
-                <option value="2006">2006</option>
-                <option value="2005">2005</option>
-                <option value="2004">2004</option>
-                <option value="2003">2003</option>
-                <option value="2002">2002</option>
-                <option value="2001">2001</option>
-                <option value="2000">2000</option>
-                <option value="1999">1999</option>
-                <option value="1998">1998</option>
-                <option value="1997">1997</option>
-                <option value="1996">1996</option>
-                <option value="1995">1995</option>
-                <option value="1994">1994</option>
-                <option value="1993">1993</option>
-                <option value="1992">1992</option>
-                <option value="1991">1991</option>
-                <option value="1990">1990</option>
-                <option value="1989">1989</option>
-                <option value="1988">1988</option>
-                <option value="1987">1987</option>
-                <option value="1986">1986</option>
-                <option value="1985">1985</option>
-                <option value="1984">1984</option>
-                <option value="1983">1983</option>
-                <option value="1982">1982</option>
-                <option value="1981">1981</option>
-                <option value="1980">1980</option>
-              </select>
-            </div>
           </div>
 
-          <div class="form-row">
+          <div class="form-row password-group mt-4">
             <div class="form-group col-md-6">
               <label for="password">password</label>
-              <input type="password" name="password" class="form-control form-sq password" id="password">
+              <input type="password" name="password" class="form-control form-sq password">
+              <i class="eye fa-solid fa-eye"></i>
             </div>
             <div class="form-group col-md-6">
               <label for="repeat-password">repeat password</label>
-              <input type="password" name="repeat-password" class="form-control form-sq repeat-password" id="repeat-password">
+              <input type="password" name="repeat-password" class="form-control form-sq repeat-password">
+              <i class="eye fa-solid fa-eye"></i>
             </div>
           </div>
 
-          <div class="form-group mb-6">
+          <div class="form-group notification-group mb-2">
             <div class="form-check">
               <input class="form-check-input personal-data" type="checkbox" name="personal-data" id="personal-data" checked>
               <label class="form-check-label" for="personal-data">
                 i approve you get my data
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check mb-1">
               <input class="form-check-input notification" type="checkbox" name="notification" id="notification">
               <label class="form-check-label" for="notification">
                 i approve to get notifications
@@ -242,11 +205,27 @@
           </div>
           
           <div class="d-flex justify-content-center mt-4">
-            <button type="submit" class="btn form-btn btn-primary">sign up</button>
+            <button type="submit" class="btn form-btn btn-primary" id="submit">sign up</button>
           </div>
 
         </form>
 
+      </div>
+
+      <div class="form-submit modal-window d-none" tabindex="-1" role="dialog" aria-labelledby="form-submited-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content form-sq">
+            <div class="modal-header">
+              <h5 class="modal-title" id="form-submited-label">you've been registered</h5>
+              <button type="button" class="close close-window" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p></p>
+            </div>
+          </div>
+        </div>
       </div>
 
     </section>
@@ -266,9 +245,12 @@
     <section class="container section d-none" data-tab="silder">
       <h1 class="pt-3 text-center">custom slider</h1>
     </section>
+
   </main>
+
   <script src="./js/script1.js"></script>
   <script src="./js/calc.js"></script>
   <script src="./js/form.js"></script>
+
 </body>
 </html>
