@@ -99,9 +99,15 @@ function submitHandler(event) {
   && isChecked(contactArray, contactGroup) && isChecked(notificationArray, notificationGroup)
   && checkPassword(password, copyPassword);
 
-  getBirthDate(age, month, day);
+  if (isValid) {
+    user.firstName = firstName.value;
+    user.lastName = lastName.value;
+    user.birthDate = getBirthDate(age, month, day);
+    user.phone = phone.value;
+    user.email = email.value;
 
-  if (isValid) showModalWindow();
+    showModalWindow();
+  }
 };
 
 /* validation functions */
@@ -118,8 +124,6 @@ function isNotEmptyText(inputText) {
   const isValid = isNotEmpty && isNotOnlySpace;
   toggleValid(inputText, isValid);
 
-  if (isValid) user[inputText.name] = inputText.value;
-
   return isValid;
 };
 
@@ -132,8 +136,6 @@ function areDigitsCorrect(numberInput) {
         isValid = isNumber && isCorrectLength && isUserAdult && isNotZero;
   
   toggleValid(numberInput, isValid);
-
-  if (isValid && numberInput === phone) user[numberInput.name] = numberInput.value;
 
   return isValid;
 };
@@ -181,7 +183,6 @@ function getBirthDate(age, month, day) {
   if (actualBirthDay < 10) actualBirthDay = `0${actualBirthDay}`;
 
   const birthDate = `${birthYear}.${actualBirthMonth}.${actualBirthDay}`;
-  user["birthDate"] = birthDate;
 
   return birthDate;
 };
@@ -194,7 +195,6 @@ function isEmailValid(inputEmail) {
         isValid = isDog && isDogNotFirst && isDot && isCorrectLength;
 
   toggleValid(inputEmail, isValid);
-  user["email"] = inputEmail.value;
 
   return isValid;
 };
@@ -259,7 +259,7 @@ function showPassword() {
 function showModalWindow() {
   modalBody.innerHTML += `welcome, <b>${user.firstName} ${user.lastName}</b><br/><br/>`;
   modalBody.innerHTML += `your birthdate: <b>${user.birthDate}</b><br/>`;
-  modalBody.innerHTML += `your username: <b>${user.email}</b><br/>`;
+  modalBody.innerHTML += `your email: <b>${user.email}</b><br/>`;
   modalBody.innerHTML += `your phone: <b>${user.phone}</b>`;
 
   if (modalWindow.classList.contains("d-none")) {
