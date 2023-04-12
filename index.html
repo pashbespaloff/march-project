@@ -17,10 +17,10 @@
         <a class="nav-link" href="#" data-tab="calc">calculator</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="#" data-tab="form">registration form</a>
+        <a class="nav-link" href="#" data-tab="form">registration form</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" data-tab="surv">survey</a>
+        <a class="nav-link active" href="#" data-tab="test">test</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" data-tab="game">tic-tac-toe</a>
@@ -66,7 +66,7 @@
       </div>
     </section>
 
-    <section class="container section" data-tab="form">
+    <section class="container section d-none" data-tab="form">
       <h1 class="pt-3 text-center">registration</h1>
 
       <div class="d-flex justify-content-center mt-4 mb-5">
@@ -75,26 +75,26 @@
           <div class="form-row mb-2">
             <div class="form-group col-md-6">
               <label for="first-name">first name</label>
-              <input type="text" class="form-control form-sq first-name" name="firstName" placeholder="">
+              <input type="text" class="form-control sq-angles first-name" name="firstName" placeholder="">
             </div>
             <div class="form-group col-md-6">
               <label for="last-name">last name</label>
-              <input type="text" class="form-control form-sq last-name" name="lastName" placeholder="">
+              <input type="text" class="form-control sq-angles last-name" name="lastName" placeholder="">
             </div>
           </div>
 
           <div class="form-row mb-2">
             <div class="form-group col-md-2">
               <label for="age">age</label>
-              <input type="text" class="form-control form-sq age" name="age" placeholder="18+">
+              <input type="text" class="form-control sq-angles age" name="age" placeholder="18+">
             </div>
             <div class="form-group col-md-4">
               <label for="phone">phone</label>
-              <input type="text" class="form-control form-sq phone" name="phone" placeholder="042 123456789">
+              <input type="text" class="form-control sq-angles phone" name="phone" placeholder="042 123456789">
             </div>
             <div class="form-group col-md-6">
               <label for="email">email</label>
-              <input type="text" class="form-control form-sq email" name="email" placeholder="name@mail.com">
+              <input type="text" class="form-control sq-angles email" name="email" placeholder="name@mail.com">
             </div>
           </div>
 
@@ -115,14 +115,14 @@
 
             <div class="form-group mt-3 d-none">
               <label for="address">address</label>
-              <input type="text" name="address" class="form-control form-sq contact-address">
+              <input type="text" name="address" class="form-control sq-angles contact-address">
             </div>
           </div>
 
           <div class="form-group birthdate-group mb-4">
             <label>birthday&nbsp;&nbsp;</label>
             <div class="form-check form-check-inline">
-              <select name="birth-month" class="form-control form-control-sm form-sq birth-month">
+              <select name="birth-month" class="form-control form-control-sm sq-angles birth-month">
                 <option value="" disabled selected>month</option>
                 <option value="0">january</option>
                 <option value="1">february</option>
@@ -139,7 +139,7 @@
               </select>
             </div>
             <div class="form-check form-check-inline">
-              <select name="birth-day" class="form-control form-control-sm form-sq birth-day">
+              <select name="birth-day" class="form-control form-control-sm sq-angles birth-day">
                 <option value="" disabled selected>day</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -179,12 +179,12 @@
           <div class="form-row password-group mt-4">
             <div class="form-group col-md-6">
               <label for="password">password</label>
-              <input type="password" name="password" class="form-control form-sq password">
+              <input type="password" name="password" class="form-control sq-angles password">
               <i class="eye fa-solid fa-eye"></i>
             </div>
             <div class="form-group col-md-6">
               <label for="repeat-password">repeat password</label>
-              <input type="password" name="repeat-password" class="form-control form-sq repeat-password">
+              <input type="password" name="repeat-password" class="form-control sq-angles repeat-password">
               <i class="eye fa-solid fa-eye"></i>
             </div>
           </div>
@@ -214,7 +214,7 @@
 
       <div class="form-submit modal-window d-none">
         <div class="modal-dialog">
-          <div class="modal-content form-sq">
+          <div class="modal-content sq-angles">
             <div class="modal-header">
               <h5 class="modal-title" id="form-submited-label">you've been registered</h5>
               <button type="button" class="close close-window">
@@ -230,8 +230,41 @@
 
     </section>
     
-    <section class="container section d-none" data-tab="surv">
-      <h1 class="pt-3 text-center">survey</h1>
+    <section class="container section" data-tab="test">
+      <h1 class="pt-3 text-center">test</h1>
+
+      <div class="d-flex justify-content-center mt-4">
+        <div class="boxes-containter">
+          <div class="form-group box">
+
+            <label class="question"></label>
+            <br>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input radio" type="radio" name="option" value="option1" id="option1">
+              <label for="option1" class="form-check-label response-option"></label>
+            </div>
+            <br>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input radio" type="radio" name="option" value="option2" id="option2">
+              <label for="option2" class="form-check-label response-option"></label>
+            </div>
+            <br>
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input radio" type="radio" name="option" value="option3" id="option3">
+              <label for="option3" class="form-check-label response-option"></label>
+            </div>
+            <br>
+
+            <button class="btn btn-success sq-angles test-btn" disabled>next question →</button>
+
+            <p class="test-result"></p>
+
+          </div>
+        </div>
+      </div>
     </section>
     
     <section class="container section d-none" data-tab="game">
@@ -251,6 +284,6 @@
   <script src="./js/script1.js"></script>
   <script src="./js/calc.js"></script>
   <script src="./js/form.js"></script>
-
+  <script src="./js/test.js"></script>
 </body>
 </html>

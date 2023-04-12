@@ -13,6 +13,7 @@ const calcField = document.querySelector(".calc-field"),
 let resultState = false;
 
 btnDelete.addEventListener("click", deleteSymbol);
+btnDelete.addEventListener("dblclick", deleteAllSymbols);
 btnResult.addEventListener("click", getResult);
 
 // going through arrays to add correct digit or operator
@@ -62,6 +63,8 @@ function deleteSymbol() {
   calcField.value = input;
 };
 
+function deleteAllSymbols() {calcField.value = ""};
+
 function getResult() {
   let input = calcField.value;
   const lastSymbol = input[input.length - 1],
@@ -77,7 +80,6 @@ function getResult() {
     input = result;
     calcField.value = input;
     resultState = true;
-    // restartCalc();
   }
 };
 
@@ -108,9 +110,9 @@ function writeKeysToInput(event) {
 
   calcField.value = input;
 
-  if (key === "Backspace" || key === "c")
-    deleteSymbol();
+  if (key === "Backspace") deleteSymbol();
 
-  if (key === "=" || key === "Enter")
-    getResult();
+  if (key === "c") deleteAllSymbols();
+
+  if (key === "=" || key === "Enter") getResult();
 };

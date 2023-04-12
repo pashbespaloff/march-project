@@ -18,6 +18,10 @@
   margin-bottom: 15px;
 }
 
+.sq-angles {
+  border-radius: 0;
+}
+
 /* styles for calc */
 .calc {
   max-width: 270px;
@@ -68,10 +72,6 @@
 
 [data-tab="form"] input:focus {
   border-color: var(--gray-dark);
-}
-
-.form-sq {
-  border-radius: 0;
 }
 
 .form-btn {
@@ -127,4 +127,28 @@
   outline: none;
   box-shadow: none;
   -webkit-box-shadow: none;
+}
+
+/* styles for test */
+.boxes-containter {
+	flex-direction: column;
+	width: clamp(300px, 60%, 800px);
+  margin-bottom: 50px;
+  line-height: 30px;
+}
+
+.question {
+	font-weight: bold;
+}
+
+[data-tab="test"] .radio {
+  margin-right: 5px;
+}
+
+.response-option {
+  line-height: 40px;
+}
+
+.test-btn {
+  margin-top: 15px;
 }
