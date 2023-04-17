@@ -94,6 +94,11 @@
   border-bottom: 1px solid var(--red);
 }
 
+.notification-group input,
+.contact-group input {
+  accent-color: var(--red);
+}
+
 .fa-eye {
   position: absolute;
   top: 50%;
@@ -130,10 +135,9 @@
 }
 
 /* styles for test */
-.boxes-containter {
+.test-containter {
 	flex-direction: column;
-	width: clamp(300px, 60%, 800px);
-  margin-bottom: 50px;
+	width: clamp(300px, 55%, 800px);
   line-height: 30px;
 }
 
@@ -142,13 +146,41 @@
 }
 
 [data-tab="test"] .radio {
-  margin-right: 5px;
+  margin-right: 10px;
+  accent-color: var(--red);
 }
 
-.response-option {
+.response-option,
+.test-result {
   line-height: 40px;
 }
 
 .test-btn {
   margin-top: 15px;
+}
+
+.test-result {
+  margin: 15px 0 20px 0;
+}
+
+/* styles for test */
+.game-box {
+  max-width: 250px;
+  margin: auto;
+}
+
+.game-field {
+  border-radius: 0;
+  border: 0;
+}
+
+.game-btn {
+  min-width: 80px;
+  min-height: 80px;
+  margin: 0px;
+  font-size: 40px;
+}
+
+.game-result {
+  margin: 20px 0 30px 0;
 }

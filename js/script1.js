@@ -4,6 +4,8 @@ const navTabs = document.querySelector(".nav-tabs"),
 
 const tabSwitch = (event) => {
   let tab;
+  const tabName = event.target.dataset.tab;
+
   if (event.target.classList.contains("nav-tabs")) {
     return false;
   } else if (event.target.classList.contains("nav-item")) {
@@ -20,6 +22,7 @@ const tabSwitch = (event) => {
 
   chooseClass(tabs, tab, "active");
   chooseClass(sections, section, "d-none", true);
+  // addScript();
 };
 
 /* function gets some elements (array), a target element and a class 
@@ -34,5 +37,22 @@ const chooseClass = (elements, targetElem, classElem, inverse) => {
     targetElem.classList.add(classElem);
   }
 };
+
+/*
+function loadScript(src) {
+  let script = document.createElement("script");
+  script.src = src;
+  document.body.appendChild(script);
+};
+
+function addScript() {
+  tabs.forEach(tab => {
+    if (tab.classList.contains("active")) 
+      loadScript(`./js/${tab.dataset.tab}.js`);
+  });
+};
+
+addScript();
+*/
 
 navTabs.addEventListener("click", tabSwitch);
