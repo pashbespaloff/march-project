@@ -23,10 +23,10 @@ const gameBox = document.querySelector(".game-box"),
       game = gameBox.querySelector(".game-field"),
       gameButtons = game.querySelectorAll("button"),
       gameResult = gameBox.querySelector(".game-result"),
-      reloadGameBtn = gameBox.querySelector(".btn-reload-game");
+      restartGameBtn = gameBox.querySelector(".btn-restart-game");
 
 game.addEventListener("click", gameHandler);
-reloadGameBtn.addEventListener("click", reloadGame);
+restartGameBtn.addEventListener("click", restartGame);
 
 function togglePlayer() {
   (activePlayer == "x") ? activePlayer = "o" : activePlayer = "x";
@@ -51,7 +51,7 @@ function gameHandler(event) {
       field[x][y] = activePlayer;
       togglePlayer();
       isWinner();
-    };
+    };    
   };
 };
 
@@ -91,16 +91,30 @@ function isWinner() {
 };
 
 function showWinner(winner) {
+  if (winner === "x") {
+    gameResult.classList.add("red");
+    gameButtons.forEach(button => button.classList.add("red"));
+
+  } else if (winner === "o") {
+    gameResult.classList.add("blue");
+    gameButtons.forEach(button => button.classList.add("blue"));
+  };
+
   gameResult.innerHTML = `the winner: <b>${winner}</b>`;
   toggleFieldBlock();
 };
 
-function reloadGame() {
+function restartGame() {
   field.forEach(row => row.fill(null));
   gameButtons.forEach(button => button.textContent = null);
   gameResult.innerHTML = "&nbsp;";
 
+  gameResult.classList.remove("red");
+  gameResult.classList.remove("blue");
+  gameButtons.forEach(button => button.classList.remove("red"));
+  gameButtons.forEach(button => button.classList.remove("blue"));
+
   activePlayer = "x";
-  
+
   toggleFieldBlock(true);
 };
