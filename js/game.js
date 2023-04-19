@@ -29,7 +29,7 @@ game.addEventListener("click", gameHandler);
 restartGameBtn.addEventListener("click", restartGame);
 
 function togglePlayer() {
-  (activePlayer == "x") ? activePlayer = "o" : activePlayer = "x";
+  (activePlayer === "x") ? activePlayer = "o" : activePlayer = "x";
 };
 
 function toggleFieldBlock(unblock) {
@@ -63,28 +63,21 @@ function isWinner() {
           match2 = winCombination[1],
           match3 = winCombination[2],
 
-          isMatchXs = field[match1.x][match1.y] === "x" 
+          xMatched = field[match1.x][match1.y] === "x" 
                     && field[match2.x][match2.y] === "x" 
                     && field[match3.x][match3.y] === "x",
 
-          isMatchOs = field[match1.x][match1.y] === "o" 
+          oMatched = field[match1.x][match1.y] === "o" 
                     && field[match2.x][match2.y] === "o" 
                     && field[match3.x][match3.y] === "o",
 
-          areNoMatches = !isMatchXs && !isMatchOs && (field.flat()).includes(null) == false;
+          noMatches = !xMatched && !oMatched && (field.flat()).includes(null) === false;
 
-    if (isMatchXs) {
-      winner = "x";
-      showWinner(winner);
+    if (xMatched) winner = "x";
+    else if (oMatched) winner = "o";
+    else if (noMatches) winner = "nobody";
 
-    } else if (isMatchOs) {
-      winner = "o";
-      showWinner(winner);
-
-    } else if (areNoMatches) {
-      winner = "nobody";
-      showWinner(winner);
-    };
+    if (winner) showWinner(winner);
   });
 
   return winner;

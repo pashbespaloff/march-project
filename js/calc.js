@@ -72,7 +72,7 @@ function getResult() {
         isLastOperator = lastSymbol === " ";
   
   if (isLastOperator || isNewValue) {
-    console.log("enter correct value");
+    // console.log("enter correct value");
   } else {
     let expression = input.split(" ").join(""),
         result = eval(expression);
@@ -95,14 +95,14 @@ function writeKeysToInput(event) {
 
   if (isOperator) {
     if (isNewValue || isLastOperator) {
-      console.log("enter correct value");
+      // console.log("enter correct value");
     } else {
     input += ` ${key} `;
     };
     
   } else if (isNumber) {
     if ((isNewValue || isLastOperator) && isZero) {
-      console.log("enter correct value");
+      // console.log("enter correct value");
     } else {
     input += key;
     };

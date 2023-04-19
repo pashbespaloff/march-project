@@ -10,6 +10,7 @@
   --light: #f8f9fa;
   --red: #dc3545;
   --blue: #007bff;
+  --gray: #6c757d;
   --gray-dark: #343a40;
 }
 
@@ -56,7 +57,8 @@
 }
 
 /* styles for form */
-[data-tab="form"] input {
+[data-tab="form"] input,
+.to-do-input {
   border: 0;
   border-bottom: 1px solid lightgray;
   padding: 0 0 5px 0;
@@ -65,13 +67,15 @@
 
 [data-tab="form"] input:focus, 
 [data-tab="form"] .is-valid:focus, 
-[data-tab="form"] .is-invalid:focus {
+[data-tab="form"] .is-invalid:focus,
+[data-tab="todo"] input:focus {
   outline: none;
   box-shadow: none;
   -webkit-box-shadow: none;
 }
 
-[data-tab="form"] input:focus {
+[data-tab="form"] input:focus,
+[data-tab="todo"] input:focus {
   border-color: var(--gray-dark);
 }
 
@@ -100,12 +104,16 @@
   accent-color: var(--red);
 }
 
-.fa-eye {
+.fa-eye,
+.fa-eye-slash {
   position: absolute;
   top: 50%;
-  right: 2.1%;
   cursor: pointer;
   color: lightgray;
+}
+
+.fa-eye {
+  right: 2.1%;
 }
 
 .fa-eye-slash {
@@ -193,4 +201,52 @@
 
 [data-tab="game"] .blue {
   color: var(--blue);
+}
+
+/* styles for to-do */
+.to-do-form,
+.to-do-tasks {
+  width: clamp(300px, 55%, 500px);
+}
+
+.to-do-list {
+  line-height: 50px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fa-trash,
+.fa-pen {
+  color: lightgray;
+  position: relative;
+}
+
+.fa-pen {
+  left: 10px;
+}
+
+.fa-trash {
+  left: 20px;
+}
+
+[data-tab="todo"] .done {
+  position: relative;
+  margin-right: 10px;
+  top: 1.5px;
+  accent-color: var(--red);
+}
+
+.line-through {
+  position: relative;
+  display: inline-block;
+}
+
+.line-through::before {
+  content: '';
+  border-bottom: 2px solid var(--red);
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 51%;
 }

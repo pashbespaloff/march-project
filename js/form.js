@@ -247,6 +247,7 @@ function showField(field, trigger) {
 };
 
 function showPassword() {
+  passwordEyes.forEach(eye => eye.classList.toggle("fa-eye"));
   passwordEyes.forEach(eye => eye.classList.toggle("fa-eye-slash"));
   
   const pass1 = password.getAttribute("type") === "password" ? "text" : "password",
