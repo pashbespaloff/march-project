@@ -216,37 +216,82 @@
   margin: 0;
 }
 
-.fa-trash,
-.fa-pen {
-  color: lightgray;
+.fa-pen,
+.fa-paste,
+.fa-trash {
   position: relative;
+  cursor: pointer;
+  color: lightgray;
 }
 
 .fa-pen {
   left: 10px;
 }
 
-.fa-trash {
+.fa-paste {
   left: 20px;
+}
+
+.fa-trash {
+  left: 30px;
 }
 
 [data-tab="todo"] .done {
   position: relative;
+  vertical-align: middle;
+  top: -1px;
   margin-right: 10px;
-  top: 1.5px;
   accent-color: var(--red);
+  cursor: pointer;
 }
 
-.line-through {
+@keyframes is-done {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+.is-done,
+.is-undone {
   position: relative;
   display: inline-block;
 }
 
-.line-through::before {
+.is-done::before,
+.is-undone::before {
   content: '';
-  border-bottom: 2px solid var(--red);
   width: 100%;
   position: absolute;
-  right: 0;
-  top: 51%;
+  left: 0;
+  top: 50%;
+  border-bottom: 2px solid var(--red);
+}
+
+.is-done::before {
+  animation: draw-line 200ms forwards;
+}
+
+.is-undone::before {
+  animation: remove-line 200ms forwards;
+}
+
+@keyframes draw-line {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes remove-line {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
 }
