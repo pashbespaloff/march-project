@@ -84,6 +84,7 @@ const box = document.querySelector(".box"),
 			};
 
 let checkBtnDisabled = true;
+let howMuchCorrectAnswers = 0;
 
 /* building correctAnswers array from initialData */
 for (const question of initialData) {
@@ -102,7 +103,7 @@ fillData(initialData[0]);
 box.addEventListener("change", () => toggleDisabled(inputs, checkBtn));
 
 checkBtn.addEventListener("click", () => getAnswer(inputs));
-reloadBtn.addEventListener("click", () => location.reload());
+reloadBtn.addEventListener("click", reloadTest);
 
 function fillData(data) {
 	question.textContent = data.question;
@@ -157,7 +158,6 @@ function showNextQuestion(questionnaire) {
 };
 
 function getResults() {
-  let howMuchCorrectAnswers = 0;
   for (let i = 0; i < userAnswers.length; i++) {
     if (userAnswers[i] == correctAnswers[i])
 			howMuchCorrectAnswers += 1;
@@ -167,6 +167,19 @@ function getResults() {
 
   testResult.textContent += results[howMuchCorrectAnswers];
 	testResult.closest("DIV").classList.remove("d-none");
+};
+
+function reloadTest() {
+	userAnswers.splice(0,3);
+	fillData(initialData[0]);
+
+	inputs.forEach(input => input.checked = false);
+	checkBtn.setAttribute("disabled", true);
+	howMuchCorrectAnswers = 0;
+	testResult.textContent = "";
+
+	box.classList.remove("d-none");
+	testResult.closest("DIV").classList.add("d-none");
 };
 
 
