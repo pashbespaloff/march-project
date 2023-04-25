@@ -4,7 +4,8 @@
 // function "delete symbol from the end of the row"
 // function "calculate and change input value to result (if there's no errors)"
 
-const calcField = document.querySelector(".calc-field"),
+const calcTab = document.getElementById("calc"),
+      calcField = document.querySelector(".calc-field"),
       btnDelete = document.querySelector(".btn-delete"),
       btnResult = document.querySelector(".btn-result"),
       btnNumbers = document.querySelectorAll(".btn-number"),
@@ -84,35 +85,39 @@ function getResult() {
 };
 
 function writeKeysToInput(event) {
-  let input = calcField.value;
-  const key = event.key,
-        lastSymbol = input[input.length - 1],
-        isOperator = key === "+" || key === "-" || key === "*" || key === "/",
-        isNumber = key >= 0 && key <= 9,
-        isNewValue = input.length === 0,
-        isLastOperator = lastSymbol === " ",
-        isZero = key === "0";
-
-  if (isOperator) {
-    if (isNewValue || isLastOperator) {
-      // console.log("enter correct value");
-    } else {
-    input += ` ${key} `;
-    };
+  let isCalcHidden = calcTab.classList.contains("d-none");
+  if (!isCalcHidden) {
     
-  } else if (isNumber) {
-    if ((isNewValue || isLastOperator) && isZero) {
-      // console.log("enter correct value");
-    } else {
-    input += key;
+    let input = calcField.value;
+    const key = event.key,
+          lastSymbol = input[input.length - 1],
+          isOperator = key === "+" || key === "-" || key === "*" || key === "/",
+          isNumber = key >= 0 && key <= 9,
+          isNewValue = input.length === 0,
+          isLastOperator = lastSymbol === " ",
+          isZero = key === "0";
+
+    if (isOperator) {
+      if (isNewValue || isLastOperator) {
+        // console.log("enter correct value");
+      } else {
+      input += ` ${key} `;
+      };
+      
+    } else if (isNumber) {
+      if ((isNewValue || isLastOperator) && isZero) {
+        // console.log("enter correct value");
+      } else {
+      input += key;
+      };
     };
+
+    calcField.value = input;
+
+    if (key === "Backspace") deleteSymbol();
+
+    if (key === "c") deleteAllSymbols();
+
+    if (key === "=" || key === "Enter") getResult();
   };
-
-  calcField.value = input;
-
-  if (key === "Backspace") deleteSymbol();
-
-  if (key === "c") deleteAllSymbols();
-
-  if (key === "=" || key === "Enter") getResult();
 };

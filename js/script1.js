@@ -4,7 +4,7 @@ const navTabs = document.querySelector(".nav-tabs"),
 
 const tabSwitch = (event) => {
   let tab;
-  const tabName = event.target.dataset.tab;
+  // const tabName = event.target.dataset.tab;
 
   if (event.target.classList.contains("nav-tabs")) {
     return false;
