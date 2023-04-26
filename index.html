@@ -17,7 +17,7 @@
         <a class="nav-link active" href="#" data-tab="calc">calculator</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" data-tab="form">registration form</a>
+        <a class="nav-link" href="#" data-tab="form">reg form</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#" data-tab="test">test</a>
@@ -34,6 +34,9 @@
       <!-- <li class="nav-item">
         <a class="nav-link" href="#" data-tab="silder">custom slider</a>
       </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="#" data-tab="currencies">converter</a>
+      </li>
     </ul>
   </nav>
 
@@ -329,6 +332,28 @@
       </div>
     </section>
 
+    <section class="container section d-none" data-tab="currencies">
+      <h1 class="pt-3 text-center">currency converter</h1>
+      <div class="d-flex justify-content-center mt-4 mb-5 converter-box">
+        <div class="flex-column">
+          <div class="currency-block">
+            <input type="text" class="input input-currency" min="0">
+            <select class="select input-currencies">
+            </select>
+          </div>
+    
+          <div class="currency-block">
+            <div class="output output-currency"><p class="output-value"></p></div>
+            <select class="select output-currencies">
+            </select>
+          </div>
+          <div class="pt-3 text-center">
+            <button class="btn btn-warning sq-angles button-convert">convert</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!--<section class="container section d-none" data-tab="silder">
       <h1 class="pt-3 text-center">custom slider</h1>
 
@@ -346,5 +371,6 @@
   <!-- <script src="./js/todopro.js"></script> -->
   <script src="./js/counter.js"></script>
   <!-- <script src="./js/slider.js"></script> -->
+  <script src="./js/currency-converter.js"></script>
 </body>
 </html>
