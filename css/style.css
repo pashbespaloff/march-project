@@ -327,6 +327,10 @@ box-shadow: none;
   border-radius: 0;
 }
 
+.output {
+  color: inherit;
+}
+
 .select {
   width: 100px;
 	height: 50px;
@@ -334,24 +338,6 @@ box-shadow: none;
   border: 0px; 
   outline: none;
 	background-color: #fff;
-}
-
-.output {
-  display: inline-block;
-  padding: 2px 5px 5px 5px;
-  box-sizing: border-box; 
-}
-
-.output-value {
-  line-height: 40px;
-}
-
-.output-value:empty::before {
-  content: "\00a0"; 
-  display: inline-block;
-  width: 100%;
-  height: 0;
-  visibility: hidden;
 }
 
 .button-convert {
