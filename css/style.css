@@ -327,8 +327,9 @@ box-shadow: none;
   border-radius: 0;
 }
 
-.output {
-  color: inherit;
+.output,
+.output:disabled {
+  color: initial;
 }
 
 .select {
