@@ -72,13 +72,14 @@ const convertHandler = () => {
     .then(response => response.json())
     .then(data => {
       // convert the currency
-      const exchangeRates = data.rates;
-      const exchangeRate = exchangeRates[currenciesOutputValue];
-      const convertedValue = inputValue * exchangeRate;
+      const exchangeRates = data.rates,
+            exchangeRate = exchangeRates[currenciesOutputValue],
+            convertedValue = inputValue * exchangeRate;
 
       // update the output value
       outputValue.textContent = convertedValue.toFixed(2);
     })
+    
     .catch(error => {
       // if there was an error fetching the data, display an error message
       outputValue.textContent = "error fetching data";
