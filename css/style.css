@@ -337,7 +337,7 @@ box-shadow: none;
 
 .output {
   display: inline-block;
-  padding: 2px 5px 5px 2px;
+  padding: 2px 5px 5px min(2px, 5px);
   box-sizing: border-box; 
 }
 
