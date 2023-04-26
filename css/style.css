@@ -324,6 +324,7 @@ box-shadow: none;
 	outline: none;
 	border: 0px;
 	border-bottom: 1px solid #ccc;
+  border-radius: 0;
 }
 
 .select {
