@@ -311,20 +311,25 @@ box-shadow: none;
 }
 
 /* styles for converter */
+.currency-block {
+  margin-top: 30px;
+}
+
 [data-tab="currencies"] .input,
 .output {
-	width: 160px;
-	height: 30px;
-	margin: 0 10px 20px 0;
-	font-size: 14px;
+	width: 140px;
+	height: 50px;
+	margin: 0 10px 0px 0;
+	font-size: 20px;
 	outline: none;
 	border: 0px;
 	border-bottom: 1px solid #ccc;
 }
 
 .select {
-  width: 80px;
-	height: 30px;
+  width: 100px;
+	height: 50px;
+  font-size: 20px;
   border: 0px; 
   outline: none;
 	background-color: #fff;
@@ -332,8 +337,12 @@ box-shadow: none;
 
 .output {
   display: inline-block;
-  padding: 5px 5px 5px 0;
+  padding: 2px 5px 5px 2px;
   box-sizing: border-box; 
+}
+
+.output-value {
+  line-height: 40px;
 }
 
 .output-value:empty::before {
