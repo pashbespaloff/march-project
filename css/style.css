@@ -330,7 +330,9 @@ box-shadow: none;
 .output,
 .output:disabled {
   color: #212529;
+  -webkit-text-fill-color: #212529;
   border-color: #ccc;
+  opacity: 1;
 }
 
 .select {
