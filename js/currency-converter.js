@@ -5,7 +5,6 @@ const converterBox = document.querySelector(".converter-box"),
       
       currenciesOutput = converterBox.querySelector(".output-currency"),
       outputCurrencies = converterBox.querySelector(".output-currencies"),
-      outputValue = converterBox.querySelector(".output-value"),
       
       buttonConvert = converterBox.querySelector(".button-convert"),
       
@@ -77,12 +76,12 @@ const convertHandler = () => {
             convertedValue = inputValue * exchangeRate;
 
       // update the output value
-      outputValue.textContent = convertedValue.toFixed(1);
+      currenciesOutput.value = convertedValue.toFixed(1);
     })
     
     .catch(error => {
       // if there was an error fetching the data, display an error message
-      outputValue.textContent = "error fetching data";
+      currenciesOutput.value = "error fetching data";
       console.error(error);
     });
 };
