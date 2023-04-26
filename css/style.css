@@ -329,7 +329,8 @@ box-shadow: none;
 
 .output,
 .output:disabled {
-  color: initial;
+  color: #212529;
+  border-color: #ccc;
 }
 
 .select {
