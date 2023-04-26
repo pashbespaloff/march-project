@@ -77,7 +77,7 @@ const convertHandler = () => {
             convertedValue = inputValue * exchangeRate;
 
       // update the output value
-      outputValue.textContent = convertedValue.toFixed(2);
+      outputValue.textContent = convertedValue.toFixed(1);
     })
     
     .catch(error => {
