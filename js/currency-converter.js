@@ -7,6 +7,7 @@ const converterBox = document.querySelector(".converter-box"),
       outputCurrencies = converterBox.querySelector(".output-currencies"),
       
       buttonConvert = converterBox.querySelector(".button-convert"),
+      buttonReplaceCurrencies = converterBox.querySelector(".button-replace"),
       
       currenciesList = [
         {
@@ -86,6 +87,18 @@ const convertHandler = () => {
     });
 };
 
+const replaceCurrencies = () => {
+  const replacedValue = inputCurrencies.value,
+        replacedInput = currenciesInput.value;
+
+  inputCurrencies.value = outputCurrencies.value;
+  outputCurrencies.value = replacedValue;
+
+  currenciesInput.value = currenciesOutput.value;
+  currenciesOutput.value = replacedInput;
+};
+
 fillCurrenciesList();
 currenciesInput.addEventListener("input", clearCurrenciesInput);
 buttonConvert.addEventListener("click", convertHandler);
+buttonReplaceCurrencies.addEventListener("click", replaceCurrencies);

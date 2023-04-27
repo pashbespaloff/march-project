@@ -348,5 +348,9 @@ box-shadow: none;
 }
 
 .button-convert {
-	width: 250px;
+	width: 190px;
+}
+
+.button-replace {
+	width: 60px;
 }
