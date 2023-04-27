@@ -53,7 +53,7 @@ const clearCurrenciesInput = () => {
   for (let i = 0; i < value.length; i++) {
     const symbol = value[i];
     if (value[0] === "0") numbersValue = numbersValue.substring(1);
-    if (!isNaN(Number(symbol))) numbersValue += symbol;
+    if (!isNaN(Number(symbol)) || symbol === ".") numbersValue += symbol;
   };
 
   currenciesInput.value = numbersValue;
