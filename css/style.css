@@ -330,6 +330,10 @@ box-shadow: none;
   border-radius: 0;
 }
 
+[data-tab="currencies"] .input {
+  caret-color: var(--gray);
+}
+
 .output,
 .output:disabled {
   color: #212529;
