@@ -1,7 +1,7 @@
 @font-face {
   font-display: block;
   font-family: 'Syne';
-  src: url('./fonts/Syne/Syne-ExtraBold.ttf') format('truetype');
+  src: url('../fonts/Syne/Syne-ExtraBold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
